@@ -1,0 +1,83 @@
+<!doctype html>
+<html ng-app="racingFrogs">
+<head>
+    <meta charset="UTF-8">
+    <title>Racing Frogs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+
+<body ng-controller="MainController as vm"><!--this binds everything inside the body to the MainController in the js.app file. But everything in the body has an alias of "vm" so if we want to bind to an object on the main controller, we need to call vm._____-->
+    <div class="container">
+        <div class="panel panel-primary" style="display: float-left">
+            <div class="panel-heading">
+                <span class="float-left">Welcome to Joe and Bob's frog races!</span>
+            <span class="float-right">
+                    <span></span>
+                        </span>
+            </div>
+            <div class="panel-body">
+                <table class="race-track" style="width: 100%">
+                    <thead>
+                        <tr>
+                            <td style="width: 5px"></td>
+                            <td style="width: 55px">Frog</td>
+                            <td id="raceTrack">
+                                <span style="float-left">|START</span>
+                                <span style="position-right">FINISH|</span>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="frog in vm.frog">
+                            <td><span>{{frog.lane | number:0}} </span></td>
+                            <td style="border: 1px solid green; position: relative; color:{{frog.color}}">
+                                <span style="color: white"><b>{{frog.name}}</b></span>
+                            </td>
+                            <td style="border: 1px solid green; position: relative">
+                                <div id="frog{{frog.lane}}" style="position: relative">
+                                    <img src="{{frog.picUrl}}"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+            <div class="panel-footer">
+            <!--<div class="alert alert-success" ng-repeat="winner in vm.winners">
+                WOOT! {{winner.name}} won the race!</div>-->
+        <span class="btn btn-default" ng-click="vm.race">START RACE!</span>
+      <!--<span class="btn btn-default" ng-click="vm.addFrog">Add a new frog</span>-->
+    </div>
+    </div>
+    </div>
+    </div>
+ <!--joe and bob below-->           
+   <div class="container">
+       <div class="panel panel-primary" style="display: inline-block">
+        <div class="panel-heading">Fun with Joe and Bob</div>
+        <div class="panel-body">
+    <p>
+    Joe has {{vm.joe.cash}}<!--binding the value of the cash property of the joe object of "this" instance of vm, to this HTML-->
+    </p>   
+    <p>
+    Bob has {{vm.bob.cash}}
+    </p>   
+    <p>
+    The Bank has {{vm.bank}}
+          </p>
+            </div>
+            <div class="panel-footer">
+                <span class="btn btn-default" ng-click="vm.giveMoneyToJoe()">Give $10 to Joe</span><!--binding the action of the button to the controller function giveMoneyToBob()-->
+                <span class="btn btn-default" ng-click="vm.receiveMoneyFromBob()">Receive $5 from Bob</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.6/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
+
+

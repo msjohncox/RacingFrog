@@ -1,0 +1,28 @@
+.racing {
+   width:100%; 
+   
+}
+
+.panel-primary
+.panel-heading {
+    background-color: darkgreen;
+}
+tr:nth-child(even) {
+    background: #EAF2D3;
+}
+
+tr:nth-child(odd) {
+    background: #7ef58c;
+}
+
+element.style {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: green;
+}
+
+text {
+    color: darkgreen;
+}
